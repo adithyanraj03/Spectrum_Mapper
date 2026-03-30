@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Starting Pipeline...</title>
+<style>
+  body {
+    background-color: #121212;
+    color: #00e676;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    flex-direction: column;
+  }
+  .ascii-art {
+    white-space: pre;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+    text-shadow: 0 0 5px #00e676;
+  }
+  @keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; text-shadow: 0 0 15px #00e676; }
+    100% { opacity: 0.7; }
+  }
+  .loading-text {
+    margin-top: 30px;
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+  .status-text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #aaaaaa;
+  }
+</style>
+</head>
+<body>
+<div class="ascii-art" id="ascii-art"></div>
+<div class="loading-text">WIFI CSI HUMAN SENSING</div>
+<div class="status-text" id="status">Warming up neural engine & starting backend...</div>
+
+<script>
+  const asciiText = `          _____                 __                               
+  / ___/____  ___  _____/ /________  __  ____ ___  
+  \\__ \\/ __ \\/ _ \\/ ___/ __/ ___/ / / / / __ \`__ \\ 
+ ___/ / /_/ /  __/ /__/ /_/ /  / /_/ / / / / / / / 
+/____/ .___/\\___/\\___/\\__/_/   \\__,_/ /_/ /_/ /_/  
+    /_/                                            `;
+    
+  const asciiEl = document.getElementById('ascii-art');
+  let charIndex = 0;
+  
+  function typeAscii() {
+    if (charIndex < asciiText.length) {
+      asciiEl.textContent += asciiText.charAt(charIndex);
+      charIndex++;
+      setTimeout(typeAscii, 5); // Fast typing speed
+    }
+  }
+  
+  typeAscii();
+
+  let dots = 0;
+  const baseText = "Warming up neural engine & starting backend";
+  setInterval(() => {
+    dots = (dots + 1) % 4;
+    document.getElementById('status').innerText = baseText + '.'.repeat(dots);
+  }, 500);
+</script>
+</body>
+</html>
