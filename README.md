@@ -7,7 +7,8 @@
 
 A high-performance, real-time Human Sensing interface leveraging Wi-Fi Channel State Information (CSI). Utilizing an ESP32-S3 microcontroller as a dedicated ingestion node streaming 52-subcarrier complex per-packet IQ datasets, this Python and Electron hybrid desktop application natively infers activities across deterministic spatial timelines.
 
-<img src="/assets/arch_diagram.png">
+<img src="assets/demo.gif" alt="Real-Time Wi-Fi CSI Activity Recognition Demo"/><br>
+
 
 ---
 
@@ -20,6 +21,8 @@ A high-performance, real-time Human Sensing interface leveraging Wi-Fi Channel S
 ---
 
 ## 📐 Pipeline Architecture Layers
+
+<img src="assets/arch_diagram.png" alt="Wi-Fi CSI Sensing Architecture Graphic"/>
 
 | Layer | Component Action | Functionality / Detail |
 | :--- | :--- | :--- |
